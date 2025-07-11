@@ -189,7 +189,7 @@ function App() {
               <div className="max-w-7xl mx-auto px-6 py-16">
                 {/* AI-Powered Section */}
                 <div className="mb-16">
-                  <h1 className="text-6xl font-bold text-gray-900 mb-12 text-center">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-12 text-center">
                     AI-Powered Government Supplier Procurement<span className="text-green-600">.</span>
                   </h1>
                   
@@ -307,7 +307,7 @@ function App() {
                         />
                         <label htmlFor="file-upload" className="cursor-pointer">
                           <div className="space-y-6">
-                            <div className="text-6xl">📄</div>
+                            <div className="text-4xl md:text-5xl lg:text-6xl">📄</div>
                             <div>
                               <h3 className="text-xl font-semibold text-gray-800">Upload Mission Documents</h3>
                               <p className="text-gray-600 mt-2">Click to browse or drag and drop your file here</p>
