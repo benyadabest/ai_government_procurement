@@ -5,15 +5,15 @@
 ## 📸 System Overview
 
 ### Main Landing Page
-![Main Landing Page](screenshots/main-page.png)
+![Main Landing Page](https://via.placeholder.com/800x600/f3f4f6/374151?text=AI-Powered+Government+Supplier+Procurement+Main+Page)
 *Upload mission documents and get started with AI-powered equipment configuration*
 
 ### Mission Data Review & Editing
-![Review & Edit Page](screenshots/review-edit-page.png)
+![Review & Edit Page](https://via.placeholder.com/800x600/ddd6fe/7c3aed?text=Review+%26+Edit+Mission+Data+Interface)
 *Verify and modify extracted mission data with confidence scoring and editable fields*
 
 ### Professional Equipment Quotation
-![Equipment Quotation](screenshots/quotation-page.png)
+![Equipment Quotation](https://via.placeholder.com/800x600/dcfce7/16a34a?text=Professional+Equipment+Quotation+Display)
 *Role-based equipment kits with real SKUs, pricing, and vendor information*
 
 ---
