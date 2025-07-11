@@ -179,25 +179,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 w-full max-w-none">
       {/* Main Content */}
-      <main>
+      <main className="w-full">
         {currentStep === 'upload' && (
           <>
             {/* Header Section */}
-            <div className="bg-white">
-              <div className="max-w-7xl mx-auto px-6 py-16">
+            <div className="bg-white w-full">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
                 {/* AI-Powered Section */}
-                <div className="mb-16">
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-12 text-center">
+                <div className="mb-8 sm:mb-16 w-full">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-12 text-center px-4">
                     AI-Powered Government Supplier Procurement<span className="text-green-600">.</span>
                   </h1>
                   
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 mb-8 sm:mb-12 w-full px-4">
                     {/* First Image */}
-                    <div className="relative overflow-hidden rounded-lg shadow-2xl">
+                    <div className="relative overflow-hidden rounded-lg shadow-2xl w-full">
                       <div 
-                        className="h-96 bg-cover bg-center relative"
+                        className="h-48 sm:h-64 md:h-80 lg:h-96 bg-cover bg-center relative w-full"
                         style={{
                           backgroundImage: `url('/Rectangle-100.jpg')`
                         }}
@@ -206,9 +206,9 @@ function App() {
                     </div>
 
                     {/* Second Image */}
-                    <div className="relative overflow-hidden rounded-lg shadow-2xl">
+                    <div className="relative overflow-hidden rounded-lg shadow-2xl w-full">
                       <div 
-                        className="h-96 bg-cover bg-center relative"
+                        className="h-48 sm:h-64 md:h-80 lg:h-96 bg-cover bg-center relative w-full"
                         style={{
                           backgroundImage: `url('/Rectangle-102.jpg')`
                         }}
@@ -219,17 +219,17 @@ function App() {
                 </div>
 
                 {/* Call to Action */}
-                <div className="text-center">
-                  <div className="flex justify-center space-x-6 mb-8">
+                <div className="text-center w-full px-4">
+                  <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                     <button
                       onClick={handleGenerateSample}
-                      className="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors shadow-lg"
+                      className="bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-green-700 transition-colors shadow-lg w-full sm:w-auto"
                     >
                       Try Sample Mission
                     </button>
                     <button
                       onClick={() => document.getElementById('file-upload').click()}
-                      className="border-2 border-green-600 text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-600 hover:text-white transition-colors"
+                      className="border-2 border-green-600 text-green-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-green-600 hover:text-white transition-colors w-full sm:w-auto"
                     >
                       Upload Documents
                     </button>
@@ -239,12 +239,12 @@ function App() {
               </div>
             </div>
 
-            <div className="bg-white py-16">
-              <div className="max-w-6xl mx-auto px-6 mb-12">
+            <div className="bg-white py-8 sm:py-16 w-full">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-12">
                 {/* How It Works */}
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl font-bold text-gray-800 mb-4">Solving Mission Variability & Equipment Complexity</h2>
-                  <p className="text-xl text-gray-600">Professional equipment quotations powered by AI analysis</p>
+                <div className="text-center mb-8 sm:mb-12 px-4">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Solving Mission Variability & Equipment Complexity</h2>
+                  <p className="text-lg sm:text-xl text-gray-600">Professional equipment quotations powered by AI analysis</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
@@ -280,8 +280,8 @@ function App() {
               </div>
 
               {/* Upload Section */}
-              <div className="max-w-4xl mx-auto px-6 mb-24">
-                <div className="bg-gray-50 rounded-lg shadow-xl p-8">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-12 sm:mb-24">
+                <div className="bg-gray-50 rounded-lg shadow-xl p-4 sm:p-8 w-full">
                   {processing ? (
                     <div className="text-center py-12">
                       <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
@@ -305,14 +305,14 @@ function App() {
                           className="hidden"
                           id="file-upload"
                         />
-                        <label htmlFor="file-upload" className="cursor-pointer">
-                          <div className="space-y-6">
-                            <div className="text-4xl md:text-5xl lg:text-6xl">📄</div>
-                            <div>
-                              <h3 className="text-xl font-semibold text-gray-800">Upload Mission Documents</h3>
-                              <p className="text-gray-600 mt-2">Click to browse or drag and drop your file here</p>
-                              <p className="text-sm text-gray-500 mt-3">
-                                Supports .txt, .doc, .docx, .pdf files • Maximum size: 10MB
+                        <label htmlFor="file-upload" className="cursor-pointer w-full block">
+                          <div className="space-y-4 sm:space-y-6 w-full">
+                            <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">📄</div>
+                            <div className="w-full">
+                              <h3 className="text-lg sm:text-xl font-semibold text-gray-800">Upload Mission Documents</h3>
+                              <p className="text-gray-600 mt-2 text-sm sm:text-base">Click to browse or drag and drop your files here</p>
+                              <p className="text-xs sm:text-sm text-gray-500 mt-3">
+                                Supports multiple files: .txt, .doc, .docx, .pdf • Maximum size: 10MB each
                               </p>
                             </div>
                           </div>
@@ -363,7 +363,7 @@ THREAT ASSESSMENT: Medium threat level`;
                           }}
                           className="text-green-600 hover:text-green-800 underline"
                         >
-                          📥 Download sample mission file to try the system
+                          📥 Try Sample Mission File To Try The System
                         </button>
                       </div>
                     </>
