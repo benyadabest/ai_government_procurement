@@ -1,0 +1,30 @@
+OPERATION DESERT FALCON
+CLASSIFICATION: UNCLASSIFIED
+
+MISSION BRIEF:
+Operation Desert Falcon is a reconnaissance mission in arid desert terrain.
+
+PERSONNEL REQUIREMENTS:
+- 4x Infantry soldiers for reconnaissance and security
+- 1x Combat medic for medical support  
+- 2x Communications specialists for radio operations
+
+OPERATIONAL ENVIRONMENT:
+- Location: Desert region with extreme heat conditions
+- Temperature: 110-120°F during day operations
+
+MISSION DURATION: 21 days
+
+BUDGET PARAMETERS:
+- Allocated Budget: $15,000 per personnel
+- Equipment Budget Cap: $105,000 total
+- Budget Classification: Priority 2 - Standard procurement
+- Funding Source: Operation Desert Shield Account 2024-OPS-7841
+- Budget Constraints: Must not exceed authorized limits
+
+SPECIAL REQUIREMENTS:
+- Extra water storage capacity required
+- Desert camouflage uniforms mandatory
+- Sand protection for sensitive equipment
+
+THREAT ASSESSMENT: Medium threat level 

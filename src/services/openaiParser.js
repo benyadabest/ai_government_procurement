@@ -61,7 +61,10 @@ const MISSION_SCHEMA = {
 export const parseFileWithOpenAI = async (fileContent) => {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
   
+  console.log('API Key Status:', apiKey ? 'Present' : 'Missing', 'Length:', apiKey?.length || 0);
+  
   if (!apiKey) {
+    console.log('No API key found, using simulation mode');
     // For demo purposes, simulate parsing if no API key is provided
     return simulateParsing(fileContent);
   }
@@ -80,7 +83,16 @@ CRITICAL INSTRUCTIONS:
    - Desert: hot, arid, middle east, sand, dry
    - Cold: arctic, winter, snow, mountain, freezing
 
-Extract all relevant information and structure it according to the provided schema.`;
+RESPONSE FORMAT: Return a valid JSON object with exactly these fields:
+{
+  "mission_name": "string",
+  "location_type": "desert|cold|Not included",
+  "mission_type": "reconnaissance|assault|humanitarian|training|logistics|Not included",
+  "personnel": [{"role": "infantry|medic|communications", "count": number, "task_assignment": "string"}],
+  "duration_days": number,
+  "special_requirements": "string",
+  "threat_level": "low|medium|high|Not included"
+}`;
 
   const userPrompt = `Extract mission information from this document:
 
@@ -96,25 +108,26 @@ Return structured data following the exact schema requirements.`;
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: "gpt-4-1106-preview",
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt }
         ],
         response_format: {
-          type: "json_schema",
-          json_schema: {
-            name: "mission_extraction",
-            schema: MISSION_SCHEMA,
-            strict: true
-          }
+          type: "json_object"
         },
         temperature: 0.1
       })
     });
 
     if (!response.ok) {
-      throw new Error(`OpenAI API error: ${response.status}`);
+      const errorData = await response.json().catch(() => ({}));
+      console.error('OpenAI API Error Details:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorData
+      });
+      throw new Error(`OpenAI API error: ${response.status} - ${errorData.error?.message || response.statusText}`);
     }
 
     const data = await response.json();
@@ -128,6 +141,13 @@ Return structured data following the exact schema requirements.`;
 
   } catch (error) {
     console.error('Error parsing file with OpenAI:', error);
+    
+    // If it's an API error, fall back to simulation
+    if (error.message.includes('OpenAI API error')) {
+      console.log('OpenAI API failed, falling back to simulation mode');
+      return simulateParsing(fileContent);
+    }
+    
     return {
       success: false,
       error: error.message,
